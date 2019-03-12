@@ -1,34 +1,32 @@
 ---
-layout: home
-title: Home
-sitemap:
-priority: 1.0
-changefreq: weekly
-lastmod: 2014-07-07T16:57:30+05:30
+layout: page
+title: Bitwiser Jekyll Theme
 ---
-{% for post in paginator.posts %}
-<div class="unit whole single-post-excerpt">
-	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	<div class="meta-info">
-		<span class="meta"><time class="timeago postlist-meta" datetime="{{ post.date | date: "%Y-%m-%d" }}"><i class="fa fa-calendar"></i>{{ post.date | date: "%B %-d, %Y" }}</time></span>
-		{% if post.tags and post.tags.size > 0 %}
-			<div class="tags">
-				Tagged:
-				{% for tag in post.tags %}
-				<span><i class="fa fa-tag"></i>{{ tag }}</span>
-				{% endfor %}
-			</div>
-		{% endif %}
+
+<div class="grid">
+	<div class="unit one-third" style="text-align:center">
+		<h1><a href="http://goo.gl/iC85jv">Download</a></h1>
+		<p>Download the theme files to get started.</p>
 	</div>
-	<p class="description">{{ post.excerpt | strip_html}}</p>
-</div>
-{% endfor %}
-<div class="unit whole paginator">
-	{% if paginator.previous_page %}
-	<a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-	{% endif %}
-	<span>Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-	{% if paginator.next_page %}
-	<a href="{{ paginator.next_page_path }}" class="next">Next</a>
-	{% endif %}
+	<div class="unit one-third" style="text-align:center">
+		<h1><a href="/bitwiser/demo.html">Demo</a></h1>
+		<p>Checkout how various elements of a blog post in this theme will look like.</p>
+	</div>
+	<div class="unit one-third" style="text-align:center">
+		<h1><a href="http://bitwiser.in/2014/09/10/bitwiser-jekyll-theme.html">Usage</a></h1>
+		<p>A usage guide to get started with this theme.</p>
+	</div>
+	<div class="unit whole">
+		<h2>Features</h2>
+		<ul>
+			<li>Clean, simple and responsive layout.</li>
+			<li>Syntax highlighting.</li>
+			<li>Sitemap included.</li>
+			<li>Google analytics.</li>
+			<li>Disqus commenting.</li>
+			<li>Share post to facebook and twitter.</li>
+			<li>Robots.txt included.</li>
+			<li>Custom 404 error page.</li>
+		</ul>
+	</div>
 </div>
