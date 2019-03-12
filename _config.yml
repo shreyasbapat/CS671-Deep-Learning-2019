@@ -6,7 +6,7 @@ markdown: kramdown
 highlighter: pygments
 
 ##define base_url for valid usage in sitemap.xml and robots.txt
-base_url: https://shreyasbapat.github.io
+base_url: https://shreyasb.com/CS671-Deep-Learning-2019/
 sass:
   sass_dir: _sass
   style: :compressed
