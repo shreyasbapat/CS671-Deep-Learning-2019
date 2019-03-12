@@ -28,6 +28,7 @@ class Layer:
             self.weights = self.init_weights()
             self.values = self.calc_values()
             self.activation = activation
+            self.activate(activation)
 
         else:
 
@@ -35,6 +36,7 @@ class Layer:
             self.n = n
             self.values = self.input_values(val)
             self.activation = activation
+            self.activate(activation)
 
     @classmethod
     def from_prev_layer(cls, n, prev_layer, activation):
@@ -55,7 +57,7 @@ class Layer:
         return cls(n=n, prev_n=l_n, prev_val=l_val, activation=activation)
 
     @classmethod
-    def input(cls, n, val, activation):
+    def input(cls, n, val, activation='relu'):
         """Return input `Layer`
 
         Parameters
@@ -112,3 +114,4 @@ class Layer:
             raise NotImplementedError("No other activation function is implemented as of now!")
 
     # TODO : Incorporate Activation in the API (By taking it in the class methods!)
+    # TODO : Work on Activation policy
