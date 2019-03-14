@@ -16,4 +16,4 @@ def softmax(arr):
     return norm_factor * y
 
 def cross_entropy(y, y_pred):
-    return -1 * np.log(y_pred[y - 1])
+    return -1 * np.log(y_pred[y])
