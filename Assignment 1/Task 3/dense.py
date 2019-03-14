@@ -70,7 +70,7 @@ class DenseNetwork:
         output_dim = output_layer.n
         y_pred = output_layer.output
         e_y = np.zeros((output_dim, 1))
-        e_y[y-1] = 1 # making one-hot-encoding
+        e_y[y] = 1 # making one-hot-encoding
         output_gradient = -1 * (e_y - y_pred)
         gradient = output_gradient # gradient for the last layer
         for i in range(1, self.num_layers):
@@ -107,6 +107,7 @@ class DenseNetwork:
                 y = y_train[index]
                 self.forward_prop()
                 self.back_prop(y, learning_rate)
+                y_pred = self.layers[self.num_layers-1].output
                 loss += cross_entropy(y, y_pred)
                 index += 1
 
@@ -119,6 +120,6 @@ class DenseNetwork:
             self.layers[0].values = x
             self.layers[0].output = x
             self.forward_prop()
-            y_predict = np.argmax(self.layers[-1].output) + 1
+            y_predict = np.argmax(self.layers[-1].output)
             y_pred.append(y_predict)
         return np.array(y_pred)
