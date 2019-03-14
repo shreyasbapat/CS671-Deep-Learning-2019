@@ -1,4 +1,5 @@
 import numpy as np
+from numba import jit
 
 from utils import relu, sigmoid, softmax
 
@@ -72,7 +73,7 @@ class Layer:
         """
         return cls(n=n, isinput=True)
 
-
+    @jit(nopython=True)
     def init_weights(self):
         """
         Function to initialise weights in a FC Layer
@@ -88,7 +89,7 @@ class Layer:
 
         return weights
 
-
+    @jit(nopython=True)
     def init_biases(self):
         """
         Function to initialise weights in a FC Layer
@@ -104,7 +105,7 @@ class Layer:
 
         return biases
 
-
+    @jit(nopython=True)
     def calc_values(self):
         """
         Function to calculate values of neurons
@@ -132,14 +133,17 @@ class Layer:
         else:
             raise NotImplementedError("No other activation function is implemented as of now!")
 
+    @jit(nopython=True)
     def init_layer(self):
         self.init_weights()
         self.init_biases()
 
+    @jit(nopython=True)
     def compile_layer(self):
         self.values = self.calc_values()
         self.activate(self.activation)
-            
+
+    @jit(nopython=True)
     def update_params(self, W_gradient, b_gradient, learning_rate):
         self.weights = self.weights - learning_rate * W_gradient
         self.bias = self.bias - learning_rate * b_gradient

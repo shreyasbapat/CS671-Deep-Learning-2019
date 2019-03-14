@@ -1,4 +1,5 @@
 import numpy as np
+from numba import jit
 
 from layers import Layer
 from utils import cross_entropy
@@ -63,7 +64,7 @@ class DenseNetwork:
         for i in range(1, self.num_layers):
             self.layers[i].compile_layer()
 
-           
+    @jit(nopython=True)
     def back_prop(self, y, learning_rate):
         output_layer = self.layers[self.num_layers-1]
         output_dim = output_layer.n
@@ -121,4 +122,3 @@ class DenseNetwork:
             y_predict = np.argmax(self.layers[-1].output) + 1
             y_pred.append(y_predict)
         return np.array(y_pred)
-    
