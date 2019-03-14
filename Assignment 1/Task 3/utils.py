@@ -13,6 +13,9 @@ def sigmoid(arr, derivative=True):
     return sigm
 
 def softmax(arr):
-       y = np.exp(arr)
-       norm_factor = np.sum(y)
-       return norm_factor * y
+    y = np.exp(arr)
+    norm_factor = np.sum(y)
+    return norm_factor * y
+
+def cross_entropy(y, y_pred):
+    return -1 * np.log(y_pred[y - 1])
