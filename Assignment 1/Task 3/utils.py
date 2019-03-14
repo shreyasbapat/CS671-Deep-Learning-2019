@@ -11,3 +11,8 @@ def sigmoid(arr, derivative=True):
     if derivative:
         return sigm * (1. - sigm)
     return sigm
+
+def softmax(arr):
+       y = np.exp(arr)
+       norm_factor = np.sum(y)
+       return norm_factor * y
