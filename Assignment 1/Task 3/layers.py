@@ -26,6 +26,7 @@ class Layer:
             self._prev_n = prev_n
             self._prev_val = prev_val
             self.weights = None
+            self.bias = None
             self.values = None
             self.activation = activation
             self.activate(activation)
@@ -110,8 +111,14 @@ class Layer:
             self.values = relu(self.values)
         elif activation=='sigmoid':
             self.values = sigmoid(self.values)
+        elif activation=='softmax':
+            self.values = softmax(self.values)
         else:
             raise NotImplementedError("No other activation function is implemented as of now!")
+            
+    def update_params(W_gradient, b_gradient, learning_rate):
+           self.weights = self.weights - learning_rate * W_gradient
+           self.bias = self.bias - learning_rate * b_gradient
 
     # TODO : Incorporate Activation in the API (By taking it in the class methods!)
     # TODO : Work on Activation policy
