@@ -6,9 +6,12 @@ class DenseNetwork:
 
     def __init__(self, input_n, input_val, activation):
 
-        self.input_layer = Layer.input(input_n, input_val, activation)
+        self.layers = []
 
-        self.layers = [self.input_layer,]
+    def input(self, dim, activation='relu'):
+        input_n = dim[1] * dim[0]
+        self.input_layer = Layer.input(input_n, activation)
+        self.layers.append(self.input_layer)
 
     def add(self, n, activation):
 
@@ -16,6 +19,6 @@ class DenseNetwork:
 
         self.layers.append(layer)
 
-    def train(self):
+    def compile(self):
 
         pass

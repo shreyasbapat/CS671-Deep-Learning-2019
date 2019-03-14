@@ -25,8 +25,8 @@ class Layer:
             self.n = n
             self._prev_n = prev_n
             self._prev_val = prev_val
-            self.weights = self.init_weights()
-            self.values = self.calc_values()
+            self.weights = None
+            self.values = None
             self.activation = activation
             self.activate(activation)
 
@@ -34,7 +34,7 @@ class Layer:
 
             self.isinput = isinput
             self.n = n
-            self.values = self.input_values(val)
+            self.values = None
             self.activation = activation
             self.activate(activation)
 
