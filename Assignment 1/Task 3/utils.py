@@ -6,10 +6,8 @@ def relu(arr):
 
     return arr
 
-def sigmoid(arr, derivative=False):
+def sigmoid(arr):
     sigm = 1. / (1. + np.exp(-arr))
-    if derivative:
-        return sigm * (1. - sigm)
     return sigm
 
 def softmax(arr):
