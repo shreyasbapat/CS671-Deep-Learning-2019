@@ -64,7 +64,7 @@ class DenseNetwork:
         for i in range(1, self.num_layers):
             self.layers[i].compile_layer()
 
-    @jit(nopython=True)
+    @jit(nopython=True, parallel=True)
     def back_prop(self, y, learning_rate):
         output_layer = self.layers[self.num_layers-1]
         output_dim = output_layer.n

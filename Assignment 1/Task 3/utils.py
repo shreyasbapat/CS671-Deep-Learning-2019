@@ -6,7 +6,7 @@ def relu(arr):
 
     return arr
 
-def sigmoid(arr, derivative=True):
+def sigmoid(arr, derivative=False):
     sigm = 1. / (1. + np.exp(-arr))
     if derivative:
         return sigm * (1. - sigm)
