@@ -119,10 +119,6 @@ class Layer:
 
         return self.weights.dot(self._prev_out) + self.bias
 
-    def input_values(self, val):
-
-        return val
-
     def activate(self, activation='relu'):
         if activation=='relu':
             self.output = relu(self.values)
