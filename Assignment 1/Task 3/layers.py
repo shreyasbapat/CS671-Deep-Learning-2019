@@ -143,6 +143,3 @@ class Layer:
     def update_params(self, W_gradient, b_gradient, learning_rate):
         self.weights = self.weights - learning_rate * W_gradient
         self.bias = self.bias - learning_rate * b_gradient
-
-    # TODO : Incorporate Activation in the API (By taking it in the class methods!)
-    # TODO : Work on Activation policy
