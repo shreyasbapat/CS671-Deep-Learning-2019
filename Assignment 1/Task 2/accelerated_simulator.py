@@ -35,6 +35,9 @@ acc_mat = tf.concat([acc_x, acc_y], 1) # acceleration matrix
 update_r = tf.assign(r, r + time_step * v + (1 / 2) * (time_step ** 2) * acc_mat) # update the configuration r
 update_v = tf.assign(v, v + time_step * acc_mat) # update the configuration v
 
+import time
+start_time = time.time()
+
 sess = tf.Session() # declare the sesion
 sess.run(tf.global_variables_initializer()) # initialize all variables
 threshold_cond = 0 # initally condition is not satisified
@@ -47,3 +50,4 @@ while (threshold_cond == 0):
   print("iter no. : %d, flag value: %d" % (counter, threshold_cond))
   
 print(r_new, v_new)
+print("--- %s seconds ---" % (time.time() - start_time))
