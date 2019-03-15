@@ -68,5 +68,10 @@ def run_simulation(masses, init_r, init_v, time_step, r_threshold):
 time_step = 10 ** (-4)
 r_threshold = 0.1
 masses, init_r, init_v = load_dataset() # loads the dataset
+
+import time
+start_time = time.time()
+
 trajectory_r, trajectory_v = run_simulation(masses, init_r, init_v, time_step, r_threshold) # runs simulation
-    
+
+print("--- %s seconds ---" % (time.time() - start_time))

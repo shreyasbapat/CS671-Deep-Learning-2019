@@ -50,4 +50,9 @@ while (threshold_cond == 0):
   print("iter no. : %d, flag value: %d" % (counter, threshold_cond))
   
 print(r_new, v_new)
+
 print("--- %s seconds ---" % (time.time() - start_time))
+
+np.save('positions.npy', r_new)
+np.save('velocities.npy', v_new)
+
