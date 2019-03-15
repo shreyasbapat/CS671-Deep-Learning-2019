@@ -8,8 +8,12 @@ CS 671: Assignment 1
 
 
 ==========================================
+
 output 			: 1000 28X28 images of 96 classes each
+
 frames_output	: frames for creating vedio
+
 agg_frames		: ordered frames for vedio
+
 vedio.mp4 		: created vedio
 
