@@ -98,6 +98,8 @@ class DenseNetwork:
 
     def fit(self, x_train, y_train, max_epochs, learning_rate=0.002):
         self.initialize() # initialize all weights and biases of all layers
+        x_axis = []
+        y_axis = []
         for i in range(max_epochs):
             index = 0
             loss = 0
@@ -111,8 +113,12 @@ class DenseNetwork:
                 y_pred = self.layers[self.num_layers-1].output
                 loss += cross_entropy(y, y_pred)
                 index += 1
-
-            print("iter no. : %d, loss func: %f" % (i, loss))
+            
+            x_axis.append(i)
+            y_axis.append(loss)
+            print("iter no. : %d, loss: %f" % (i, loss))
+            
+        return x_axis, y_axis
 
 
     def predict(self, x_test):
