@@ -1,12 +1,12 @@
 import numpy as np
-from numba import jit
+#from numba import jit
 
 from layers import Layer
 from utils import cross_entropy
 
 class DenseNetwork:
 
-    def __init__(self, activation):
+    def __init__(self):
 
         self.layers = [] # list containg layer objects
         self.num_layers = 0 # number of layers in network
@@ -46,6 +46,8 @@ class DenseNetwork:
                  return 1
             else:
                  return 0
+        elif activation == 'one':
+            return 0
         else:
             raise NotImplementedError("Not implemented as of now!")
        
@@ -62,16 +64,15 @@ class DenseNetwork:
        
     def forward_prop(self):
         for i in range(1, self.num_layers):
-            self.layers[i].compile_layer()
+            self.layers[i].compile_layer(self.layers[i-1])
 
-    @jit(nopython=True, parallel=True)
+    #@jit(nopython=True, parallel=True)
     def back_prop(self, y, learning_rate):
         output_layer = self.layers[self.num_layers-1]
         output_dim = output_layer.n
         y_pred = output_layer.output
-        e_y = np.zeros((output_dim, 1))
-        e_y[y] = 1 # making one-hot-encoding
-        output_gradient = -1 * (e_y - y_pred)
+        #e_y = np.zeros((output_dim, 1)
+        output_gradient = -1 * (y - y_pred)
         gradient = output_gradient # gradient for the last layer
         for i in range(1, self.num_layers):
                   
@@ -122,4 +123,9 @@ class DenseNetwork:
             self.forward_prop()
             y_predict = np.argmax(self.layers[-1].output)
             y_pred.append(y_predict)
-        return np.array(y_pred)
+            
+        n = len(y_pred)
+        y_pred = np.array(y_pred)
+        zer = np.zeros((n, 10))
+        zer[np.arange(n), y_pred] = 1
+        return zer
