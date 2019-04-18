@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Problem Statement}{3}{0}{1}
+\beamer@sectionintoc {2}{Some Related Work}{5}{0}{2}
+\beamer@sectionintoc {3}{Motivation and Challenges}{7}{0}{3}
+\beamer@sectionintoc {4}{Dataset}{8}{0}{4}
+\beamer@sectionintoc {5}{Proposed Methodology}{9}{0}{5}
+\beamer@sectionintoc {6}{Progress}{11}{0}{6}
+\beamer@sectionintoc {7}{Conclusion and Future work}{12}{0}{7}
